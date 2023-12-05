@@ -1,0 +1,34 @@
+.App {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: max-content 1fr;
+}
+
+.Body {
+  display: grid;
+  grid-template-rows: 1fr max-content;  
+  overflow: scroll;
+
+}
+
+.Main {
+  background-color: #23E1CE;
+  max-width: 100vw;
+  padding: 10px;
+}
+
+.Footer {
+  background-color: #026C71;
+}
+
+
+
+
+.new-ticket-map-container{
+  width: 100%;
+  height: 200px;
+}
+
+.new-ticket-combobox{
+  width: 100%;
+}
