@@ -48,35 +48,35 @@ export default function BrowseProjects () {
         const mappedProjects = allProjects.map((project, index)=>{
             return(
                 <Card key={project._id} >
-                <CardBody>
-                    <CardTitle tag="h6">{project.name}</CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6"> {project.organization.orgName} </CardSubtitle>
-                    <CardText> {project.description} </CardText>
-                    <Container fluid>
-                        <Row >
-                            <Col className="bg-light border" xs="5"> Start </Col>
-                            <Col > {dayjs(project.startDate).format('MMM D, YYYY')} </Col>
-                        </Row>
-                        <Row xs="2">
-                            <Col className="bg-light border" xs="5"> End </Col>
-                            <Col > {dayjs(project.endDate).format('MMM D, YYYY')} </Col>
-                        </Row>
-                        <Row >
-                            <Col className="bg-light border" xs="5"> Contributors </Col>
-                            <Col > {project.userParticipants.length} </Col>
-                        </Row>
-                        <Row >
-                            <Col className="bg-light border" xs="5"> Tickets </Col>
-                            <Col > {allTickets.filter((ticket)=> ticket.project == project._id).length} </Col>
-                        </Row>
-                    </Container>
-                    <Button>
-                    Join Project
-                    </Button>
-                    <Button onClick={()=>navigate(`/projects/${project._id}`)}>
-                    Project Details
-                    </Button>
-                </CardBody>
+                    <CardBody>
+                        <CardTitle tag="h6">{project.name}</CardTitle>
+                        <CardSubtitle className="mb-2 text-muted" tag="h6"> {project.organization.orgName} </CardSubtitle>
+                        <CardText> {project.description} </CardText>
+                        <Container fluid>
+                            <Row >
+                                <Col className="bg-light border" xs="5"> Start </Col>
+                                <Col > {dayjs(project.startDate).format('MMM D, YYYY')} </Col>
+                            </Row>
+                            <Row xs="2">
+                                <Col className="bg-light border" xs="5"> End </Col>
+                                <Col > {dayjs(project.endDate).format('MMM D, YYYY')} </Col>
+                            </Row>
+                            <Row >
+                                <Col className="bg-light border" xs="5"> Contributors </Col>
+                                <Col > {project.userParticipants.length} </Col>
+                            </Row>
+                            <Row >
+                                <Col className="bg-light border" xs="5"> Tickets </Col>
+                                <Col > {allTickets.filter((ticket)=> ticket.project == project._id).length} </Col>
+                            </Row>
+                        </Container>
+                        <Button>
+                        Join Project
+                        </Button>
+                        <Button onClick={()=>navigate(`/projects/${project._id}`)}>
+                        Project Details
+                        </Button>
+                    </CardBody>
                 </Card>            
             )
         })

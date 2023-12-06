@@ -20,10 +20,11 @@ import {
 
 
 export default function NewTicketMap ({selectedAddress, setSelectedAddress, isLoaded, newTicket, setNewTicket}) {
-    
     useEffect(() => {
         console.log("selectedAddress", selectedAddress)
       }, [selectedAddress])
+
+    console.log(isLoaded)
     
     if (!isLoaded) return  <div> Loading... </div>
     return (

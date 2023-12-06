@@ -32,3 +32,8 @@
 .new-ticket-combobox{
   width: 100%;
 }
+
+.project-details-map-container{
+  width: 100%;
+  height: 300px;
+}
