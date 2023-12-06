@@ -63,21 +63,21 @@ export default function ProjectDetails () {
                     displayProjectTickets={displayProjectTickets} 
                 />
                 <CardBody>
-                <Table>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Contributors</th>
-                            <td>{displayProject.userParticipants.length}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Total Tickets</th>
-                            <td>{displayProjectTickets.length}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"> Reviewed Tickets </th>
-                            <td>#</td>
-                        </tr>
-                    </tbody>
+                    <Table>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Contributors</th>
+                                <td>{displayProject.userParticipants.length}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total Tickets</th>
+                                <td>{displayProjectTickets.length}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"> Reviewed Tickets </th>
+                                <td>#</td>
+                            </tr>
+                        </tbody>
                     </Table>
                 </CardBody>
             </Card>       
