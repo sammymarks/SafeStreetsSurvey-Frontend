@@ -80,6 +80,7 @@ export default function Header () {
       }
     }, [isAuthenticated, isLoading, user])
 
+    console.log("userProjects", userProjects)
     return (
         <div className='Header'>
           <Navbar style={{backgroundColor: "#026C71"}}>
