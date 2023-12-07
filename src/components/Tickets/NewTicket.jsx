@@ -168,11 +168,6 @@ export default function NewTicket () {
         console.log(newTicket)
     }, [newTicket])
 
-
-    
-
-
-
     return(
         <div className="NewTicket">
             

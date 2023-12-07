@@ -20,7 +20,7 @@ import {
 
 
 export default function NewTicketAddress ({selectedAddress, setSelectedAddress, isLoaded, newTicket, setNewTicket}) {
-    
+    console.log("selectedAddress from props", selectedAddress)
     
     const {
         ready, value, setValue,
@@ -39,8 +39,9 @@ export default function NewTicketAddress ({selectedAddress, setSelectedAddress, 
         //convert to lat long
         const results = await getGeocode({address})
         const {lat, lng} = await getLatLng(results[0])
-        setSelectedAddress({lat, lng})
-        setNewTicket({...newTicket, addressLat: selectedAddress.lat, addressLong: selectedAddress.lng })
+        console.log("new selected lat lng", lat, lng)
+        setSelectedAddress({lat: lat, lng: lng})
+        console.log("selectedAddress from handleAddressSelect", selectedAddress)
     }
 
     //GET CURRENT LOCATION
@@ -80,6 +81,10 @@ export default function NewTicketAddress ({selectedAddress, setSelectedAddress, 
         }
         
       }
+
+    useEffect(() => {
+        setNewTicket({...newTicket, addressLat: selectedAddress.lat, addressLong: selectedAddress.lng })
+    }, [selectedAddress])
     
     if (!isLoaded) return  <div> Loading... </div>
 

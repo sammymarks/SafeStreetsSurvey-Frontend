@@ -29,7 +29,8 @@ export default function ProjectDetailsMap ({displayProject, displayProjectTicket
         googleMapsApiKey : import.meta.env.VITE_GOOGLE_MAPS_PLACE_API_KEY,
         libraries: GMapsLibraries
       })
-
+    
+    console.log("displayProjectTickets Map", displayProjectTickets)
     //Map Markers
     const mapProjectMarkers = () => {
         const markers = displayProjectTickets.map((ticket, index)=>{
@@ -71,8 +72,8 @@ export default function ProjectDetailsMap ({displayProject, displayProjectTicket
                 onCloseClick={()=>setSelectedMarker(null)}
             >
                 <Card style={{border: "none"}}>
-                        <Button size="sm">Ticket Details</Button>
-                        <Table>
+                    <Button size="sm">Ticket Details</Button>
+                    <Table>
                         <tbody>
                             <tr>
                                 <th scope="row">ID</th>
@@ -102,6 +103,8 @@ export default function ProjectDetailsMap ({displayProject, displayProjectTicket
         if (displayProjectTickets.length>0) {mapProjectMarkers()}
       }, [displayProjectTickets])
     
+    console.log("project Markers", projectMarkers)
+
     if (!isLoaded) return  <div> Loading... </div>
     return (
         <div className="ProjectDetailsMap">
