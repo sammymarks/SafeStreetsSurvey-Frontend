@@ -37,7 +37,6 @@ export default function Header () {
 
     //Lookup database user based on Auth0 user.sub. If no user, create new user. Pull user data, user projects, and user tickets.
     const lookupDBUserWithAuth0 = async () => {
-      //VITE_DB_BASE_URL = "http://localhost:3001/"
       const token = await getAccessTokenSilently()
       const response = await axios.post(`${dbBaseURL}users/auth/check-user`, {
         auth0sub: user.sub,

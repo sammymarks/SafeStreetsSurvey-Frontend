@@ -29,12 +29,19 @@ export default function ProjectDetails () {
         setDisplayProjectTickets(allTickets.filter((ticket)=> ticket.project == id))
     }
 
-    //Project Data
+    //Join Project
+    const joinProject = async () => {
+        
+    }
+
+    //Project Data UseEffect
     useEffect(() => {
         const linkedProject = allProjects.find((project) => project._id === id)
         setDisplayProject(linkedProject)
         getProjectTickets()
       }, [id])
+
+
     
     console.log("displayProject", displayProject)
     console.log("displayProjectTickets", displayProjectTickets)

@@ -44,6 +44,11 @@ export default function BrowseProjects () {
         return formatDate
     }
 
+    //Join Project
+    const joinProject = async (projectID) => {
+
+    }
+
     const displayAllProjects = () => {
         const mappedProjects = allProjects.map((project, index)=>{
             return(
@@ -70,10 +75,10 @@ export default function BrowseProjects () {
                                 <Col > {allTickets.filter((ticket)=> ticket.project == project._id).length} </Col>
                             </Row>
                         </Container>
-                        <Button>
+                        {/* <Button style={{backgroundColor: "#CF2C28", margin: '5px' } }>
                         Join Project
-                        </Button>
-                        <Button onClick={()=>navigate(`/projects/${project._id}`)}>
+                        </Button> */}
+                        <Button style={{margin :'5px'}} onClick={()=>navigate(`/projects/${project._id}`)}>
                         Project Details
                         </Button>
                     </CardBody>

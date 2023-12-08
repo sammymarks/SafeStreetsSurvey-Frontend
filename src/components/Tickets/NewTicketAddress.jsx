@@ -91,6 +91,8 @@ export default function NewTicketAddress ({selectedAddress, setSelectedAddress, 
     return (
         <div className="NewTicketAddress">
             <InputGroup>
+                <Button onClick={() => getCurrentLocation()}>Get Current Location</Button>
+                {currentLocationLoading ? <Spinner color="primary"  >Loading...</Spinner> : null}
                 <Combobox onSelect={handleAddressSelect} className="new-ticket-combobox">
                     <ComboboxInput 
                         value={value} 
@@ -109,8 +111,7 @@ export default function NewTicketAddress ({selectedAddress, setSelectedAddress, 
                         </ComboboxList>
                     </ComboboxPopover>
                 </Combobox>
-                <Button onClick={() => getCurrentLocation()}>Get Current Location</Button>
-                {currentLocationLoading ? <Spinner color="primary"  >Loading...</Spinner> : null}
+               
             </InputGroup>
         </div>
     )
