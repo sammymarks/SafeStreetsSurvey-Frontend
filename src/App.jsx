@@ -21,11 +21,11 @@ function App() {
       isSiteAdmin: false,
       isOrgAdmin: false
   });
-  const [ userProjects, setUserProjects ] = useState([])
-  const [ userTickets, setUserTickets ] = useState([])
-  const [ allProjects, setAllProjects ] = useState([])
-  const [ allOrganizations, setAllOrganizations ] = useState([])
-  const [ allTickets, setAllTickets ] = useState([])
+  const [ userProjects, setUserProjects ] = useState([]) //Projects where the logged in user has signed up
+  const [ userTickets, setUserTickets ] = useState([]) //Tickets submitted by the logged in user
+  const [ allProjects, setAllProjects ] = useState([]) //All projects in DB
+  const [ allOrganizations, setAllOrganizations ] = useState([]) //All organizations in the DB
+  const [ allTickets, setAllTickets ] = useState([]) //All tickets in the DB
 
 
 
