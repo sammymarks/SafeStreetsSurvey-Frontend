@@ -58,7 +58,7 @@ V1 User Stories include the following. Additional user stories are on the roadma
 #### Documentation Links
 
 - [Wireframe and Prototypes (Figma)](https://www.figma.com/file/PgBKZJRd5Z9HuNlAycoV2D/SafeStreetsSurveyWireframe?type=design&node-id=28%3A662&mode=design&t=gddylUez4ROKhTLA-1)
-- [Entity Relationship Diagram (LucidChart)](Lhttps://lucid.app/lucidchart/7d32749a-1702-47f7-885f-de0499a68c37/edit?beaconFlowId=F6D620418334B4B3&invitationId=inv_5c45c9eb-7b81-4756-88d0-ec7541658c05&page=0_0#)
+- [Entity Relationship Diagram (LucidChart)](https://lucid.app/lucidchart/7d32749a-1702-47f7-885f-de0499a68c37/edit?beaconFlowId=F6D620418334B4B3&invitationId=inv_5c45c9eb-7b81-4756-88d0-ec7541658c05&page=0_0#)
 - [React Component Hierarchy Diagram (LucidChart)](https://lucid.app/lucidchart/7d32749a-1702-47f7-885f-de0499a68c37/edit?beaconFlowId=F6D620418334B4B3&invitationId=inv_5c45c9eb-7b81-4756-88d0-ec7541658c05&page=ps0QL4_C7fW1#)
 - [Initial 40th Ward User Requirements](https://docs.google.com/document/d/1gg-8tuoF4f95qgKYHpgesNDGQ1xtYn2gtIXYTkn-P9k/edit)
 - [Ongoing Backlog and Plan (Trello)](https://trello.com/b/AqvfREGa/ga-capstone-safe-streets-survey)
