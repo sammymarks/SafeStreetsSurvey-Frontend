@@ -21,23 +21,21 @@ const Profile = () => {
   return (
     <div className="UserProfile">
       {isAuthenticated && (
-        <div className="UserProfile" style={{display: 'flex', 'flex-direction': 'column', 'align-items': 'center'}} >
+        <div className="UserProfile" style={{display: 'flex', flexDirection: 'column', alignItems : 'center'}} >
           {/* User Profile Card */}
-          <Card style={{ width: '20rem', 'margin-top': '10px', 'border-radius': '20px'}} >
+          <Card style={{ width: '20rem', marginTop: '10px', borderRadius: '20px'}} >
             <CardBody>
               {/* TEMPORARY: added inline styles to make image smaller, can be moved to CSS */}
               <CardTitle tag="h5">
-                <img src={user.picture} alt={user.name} style={{width: '50px', 'border-radius': '50%'}}/>
+                <img src={user.picture} alt={user.name} style={{width: '50px', borderRadius: '50%'}}/>
                 {user.name}
               </CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6" >
                 Card subtitle
               </CardSubtitle>
-              <CardText>
-                <div>Name: {user.name}</div>
-                <div>Nickname: {user.nickname}</div>
-                <div>Email: {user.email}</div>
-              </CardText>
+                <CardText>Name: {user.name}</CardText>
+                <CardText>Nickname: {user.nickname}</CardText>
+                <CardText>Email: {user.email}</CardText>
               <Button onClick={toggle}>
                 Edit Profile
               </Button>
@@ -60,8 +58,8 @@ const Profile = () => {
           </Modal>
 
           {/* Buttons to view other parts of user profile */}
-          <Button style={{'margin-top': '15px', width: '20rem', height: '3rem', 'border-radius': '15px'}}>My Projects</Button>
-          <Button style={{'margin-top': '15px', width: '20rem', height: '3rem', 'border-radius': '15px'}}>My Tickets</Button>
+          <Button style={{marginTop: '15px', width: '20rem', height: '3rem', borderRadius: '15px'}}>My Projects</Button>
+          <Button style={{marginTop: '15px', width: '20rem', height: '3rem', borderRadius: '15px'}}>My Tickets</Button>
           {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
         </div>
       )}
