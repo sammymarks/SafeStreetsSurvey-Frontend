@@ -16,6 +16,8 @@ import ProjectDetailsMap from "./ProjectDetailsMap";
 
 export default function ProjectDetails () {
     const navigate = useNavigate()
+    //Auth
+    const { user, isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect, logout } = useAuth0();
     //UseContext
     const { loggedInUser, setLoggedInUser, dbBaseURL, setDbBaseURL, userProjects, setUserProjects, userTickets, setUserTickets, allProjects, setAllProjects, allOrganizations, setAllOrganization, allTickets, setAllTickets } = useContext(DataContext);
     //URL Params
@@ -30,8 +32,39 @@ export default function ProjectDetails () {
     }
 
     //Join Project
-    const joinProject = async () => {
-        
+    const joinProject = async (projID) => {
+        console.log(loggedInUser)
+        const token = await getAccessTokenSilently()
+        const response = await axios.put(`${dbBaseURL}projects/add-user`, {
+            projectID : projID,
+            userID : loggedInUser._id
+        },
+        {
+            headers: {
+            authorization: `Bearer ${token}`,
+            auth0sub: user.sub,
+            }
+        }
+        )
+        console.log("response", response)
+    }
+
+    //Leave Project
+    const leaveProject = async (projID) => {
+        console.log(loggedInUser)
+        const token = await getAccessTokenSilently()
+        const response = await axios.put(`${dbBaseURL}projects/remove-user`, {
+            projectID : projID,
+            userID : loggedInUser._id
+        },
+        {
+            headers: {
+            authorization: `Bearer ${token}`,
+            auth0sub: user.sub,
+            }
+        }
+        )
+        console.log("response", response)
     }
 
     //Project Data UseEffect
@@ -46,7 +79,7 @@ export default function ProjectDetails () {
     console.log("displayProject", displayProject)
     console.log("displayProjectTickets", displayProjectTickets)
     
-    if (displayProjectTickets.length == 0) {return <div>Loading...</div>}
+    if (!displayProject) {return <div>Loading...</div>}
     return (
         <div className="ProjectDetails">
             <Card  style={{backgroundColor: 'transparent', border: 'none'}}>
@@ -54,9 +87,25 @@ export default function ProjectDetails () {
                     <Button style={{margin: '5px' }}>
                         Browse Projects
                     </Button>
-                    <Button style={{backgroundColor: "#CF2C28", margin: '5px' } }>
-                        Join Project
-                    </Button>
+                    {
+                        (user && loggedInUser && isAuthenticated) && 
+                            displayProject.userParticipants.includes(loggedInUser._id) ?
+                                <Button 
+                                    style={{backgroundColor: "#CF2C28", margin: '5px' } }
+                                    onClick={()=>leaveProject(displayProject._id)}
+                                    >
+                                    Leave Project
+                                </Button>
+                            :
+                                <Button 
+                                    style={{backgroundColor: "#CF2C28", margin: '5px' } }
+                                    onClick={()=>joinProject(displayProject._id)}
+                                    >
+                                    Join Project
+                                </Button>
+                    }
+                    
+                
                 </ButtonGroup>
                 <CardBody>
                     <CardTitle tag="h6">{displayProject.name}</CardTitle>
