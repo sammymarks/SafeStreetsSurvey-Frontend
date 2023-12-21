@@ -33,9 +33,9 @@ const Profile = () => {
               <CardSubtitle className="mb-2 text-muted" tag="h6" >
                 Card subtitle
               </CardSubtitle>
-                <CardText>Name: {user.name}</CardText>
-                <CardText>Nickname: {user.nickname}</CardText>
-                <CardText>Email: {user.email}</CardText>
+              <CardText>Name: {user.name}</CardText>
+              <CardText>Nickname: {user.nickname}</CardText>
+              <CardText>Email: {user.email}</CardText>
               <Button onClick={toggle}>
                 Edit Profile
               </Button>

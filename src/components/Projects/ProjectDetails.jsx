@@ -16,6 +16,8 @@ import ProjectDetailsMap from "./ProjectDetailsMap";
 
 export default function ProjectDetails () {
     const navigate = useNavigate()
+    //Auth
+    const { user, isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect, logout } = useAuth0();
     //UseContext
     const { loggedInUser, setLoggedInUser, dbBaseURL, setDbBaseURL, userProjects, setUserProjects, userTickets, setUserTickets, allProjects, setAllProjects, allOrganizations, setAllOrganization, allTickets, setAllTickets } = useContext(DataContext);
     //URL Params
@@ -30,8 +32,19 @@ export default function ProjectDetails () {
     }
 
     //Join Project
-    const joinProject = async () => {
-        
+    const joinProject = async (projID) => {
+        console.log(loggedInUser)
+        const token = await getAccessTokenSilently()
+        const response = await axios.post(`${dbBaseURL}projects/add-user`, {
+            projectID : projID,
+            userID : loggedInUser._id
+        }, {
+            headers: {
+            authorization: `Bearer ${token}`,
+            auth0sub: user.sub,
+            }
+        })
+
     }
 
     //Project Data UseEffect
@@ -54,7 +67,10 @@ export default function ProjectDetails () {
                     <Button style={{margin: '5px' }}>
                         Browse Projects
                     </Button>
-                    <Button style={{backgroundColor: "#CF2C28", margin: '5px' } }>
+                    <Button 
+                        style={{backgroundColor: "#CF2C28", margin: '5px' } }
+                        onClick={()=>joinProject(displayProject._id)}
+                        >
                         Join Project
                     </Button>
                 </ButtonGroup>
