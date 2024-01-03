@@ -7,6 +7,7 @@ import NewTicket from "../Tickets/NewTicket"
 import Home from "../Main/Home"
 import BrowseProjects from "../Projects/BrowseProjects"
 import ProjectDetails from "../Projects/ProjectDetails"
+import AdminDashboard from "../Admin/AdminDashboard"
 
 export default function Main () {
 
@@ -18,6 +19,7 @@ export default function Main () {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/projects" element={<BrowseProjects/>}/>
                 <Route path="/projects/:id" element={<ProjectDetails/>}/>
+                <Route path="/admin-dashboard" element={<AdminDashboard />} />
             </Routes>
         </div>
     )

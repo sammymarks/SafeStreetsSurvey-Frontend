@@ -42,8 +42,8 @@ export default function Header () {
         auth0sub: user.sub,
         displayName: user.name,
         email: user.email,
-        isSiteAdmin: true,
-        isOrgAdmin: true,
+        isSiteAdmin: false,
+        isOrgAdmin: false,
       }, {
         headers: {
           authorization: `Bearer ${token}`,
@@ -113,7 +113,15 @@ export default function Header () {
                     </NavItem>
                     <NavItem>
                       <NavLink href="/new-ticket/">New Ticket</NavLink>
-                    </NavItem> 
+                    </NavItem>
+                    {
+                      loggedInUser.isOrgAdmin ? 
+                      <>
+                         <NavItem>
+                          <NavLink href="/admin-dashboard/">Admin Dashboard</NavLink>
+                        </NavItem>
+                      </>:null
+                    } 
                   </> : null
                 }
                 <NavItem>

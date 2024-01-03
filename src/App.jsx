@@ -23,6 +23,7 @@ function App() {
   });
   const [ userProjects, setUserProjects ] = useState([]) //Projects where the logged in user has signed up
   const [ userTickets, setUserTickets ] = useState([]) //Tickets submitted by the logged in user
+  const [ adminOrgs, setAdminOrgs ] = useState([]) //Organizations for which user isOrgAdmin
   const [ allProjects, setAllProjects ] = useState([]) //All projects in DB
   const [ allOrganizations, setAllOrganizations ] = useState([]) //All organizations in the DB
   const [ allTickets, setAllTickets ] = useState([]) //All tickets in the DB
@@ -60,6 +61,7 @@ function App() {
         dbBaseURL, setDbBaseURL,
         userProjects, setUserProjects,
         userTickets, setUserTickets,
+        adminOrgs, setAdminOrgs,
         allProjects, setAllProjects,
         allOrganizations, setAllOrganizations,
         allTickets, setAllTickets  
