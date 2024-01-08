@@ -33,7 +33,7 @@ export default function Header () {
     const { user, isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect, logout } = useAuth0();
     //useContext
     const { loggedInUser, setLoggedInUser, dbBaseURL, setDbBaseURL, userProjects, setUserProjects,
-      userTickets, setUserTickets  } = useContext(DataContext);
+      userTickets, setUserTickets, adminOrgs, setAdminOrgs  } = useContext(DataContext);
 
     //Lookup database user based on Auth0 user.sub. If no user, create new user. Pull user data, user projects, and user tickets.
     const lookupDBUserWithAuth0 = async () => {
@@ -54,6 +54,11 @@ export default function Header () {
       setLoggedInUser(response.data.user)
       setUserProjects(response.data.projects)
       setUserTickets(response.data.tickets)
+      if (loggedInUser.isOrgAdmin) {setAdminOrgs(response.data.adminOrgs)}
+    }
+
+    const lookupAdminOrgs = async () => {
+
     }
 
     //Logout and reset useState
@@ -78,6 +83,12 @@ export default function Header () {
         lookupDBUserWithAuth0()
       }
     }, [isAuthenticated, isLoading, user])
+
+    useEffect(()=>{
+      if (loggedInUser && loggedInUser.isOrgAdmin) {
+        lookupAdminOrgs()
+      }
+    }, [loggedInUser])
 
     console.log("userProjects", userProjects)
     return (
